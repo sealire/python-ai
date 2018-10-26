@@ -1,5 +1,7 @@
 import numpy as np
 
+# 统计函数
+
 a = np.array([4, 5, 2, 3, 1])
 print("a:", a)
 print()
