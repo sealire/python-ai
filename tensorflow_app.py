@@ -1,12 +1,12 @@
 import tensorflow as tf
+import os
 
-# 首先，创建一个TensorFlow常量=>2
-const = tf.constant(2.0, name='const')
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-# 创建TensorFlow变量b和c
-b = tf.Variable(2.0, name='b')
-c = tf.Variable(1.0, dtype=tf.float32, name='c')
+hello = tf.constant("Hello, TensorFlow!")
+sess = tf.Session()
+print(sess.run(hello))
 
-print(const)
-print(b)
-print(c)
+a = tf.constant(10)
+b = tf.constant(32)
+print(sess.run(a+b))
