@@ -1,4 +1,4 @@
 import numpy as np
 
-x = np.arange(0, 3 * np.pi, 0.1)
-print(x)
+a = np.array([[1, 2, 3], [3, 4, 5], [4, 5, 6]])
+print(a[..., 0])
