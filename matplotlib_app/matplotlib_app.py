@@ -49,7 +49,7 @@ plt.xlabel('X axis')
 plt.show()
 
 x = np.arange(-10, 10, 0.1)
-y = 1 / (1 + np.e ** -x) - 0.5
+y = 1 / (1 + np.e ** (-2 * x)) - 0.5
 plt.title("Matplotlib demo")
 plt.xlabel("x axis caption")
 plt.ylabel("y axis caption")

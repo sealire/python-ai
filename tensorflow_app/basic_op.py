@@ -9,6 +9,7 @@ sess = tf.Session()
 zeros = tf.zeros([3, 4])
 print("zeros: ")
 print(sess.run(zeros))
+print(sess.run(tf.rank(zeros)))
 print()
 
 ones = tf.ones([5, 4])
