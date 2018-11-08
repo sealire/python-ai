@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 生成模拟数据
-train_X = np.float32(np.linspace(-2 * np.pi, 2 * np.pi, 200))
+train_X = np.float32(np.linspace(-2 * np.pi, 2 * np.pi, 400))
 train_Y = 2 * np.sin(train_X) + np.random.randn(*train_X.shape) * 0.2  # y=2x，但是加入了噪声
 # 图形显示
 # plt.plot(train_X, train_Y, 'ro', label='Original data')

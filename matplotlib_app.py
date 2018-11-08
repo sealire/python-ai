@@ -1,21 +1,17 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
 
-# 设置三维坐标
+n_angles = 200
+n_radii = 40
+radii = np.linspace(0.125, 1.0, n_radii)
+angles = np.linspace(0, 2 * np.pi, n_angles, endpoint=False)
+angles = np.repeat(angles[..., np.newaxis], n_radii, axis=1)
+x = np.append(0, (radii * np.cos(angles)).flatten())
+y = np.append(0, (radii * np.sin(angles)).flatten())
+z = np.sin(-x * y)
 fig = plt.figure()
-ax = Axes3D(fig)
-
-# 生成数据
-x = np.linspace(-5, 5, 10)
-y = np.linspace(-5, 5, 10)
-X, Y = np.meshgrid(x, y)  # XY平面的网格数据
-Z = X + Y
-
-
-print(X)
-print(Y)
-print(Z)
-# 画3d图
-ax.plot_surface(X, Y, Z, rstride=1, cstride=1, cmap=plt.cm.jet)
+ax = fig.gca(projection='3d')
+ax.plot_trisurf(x, y, z, cmap=cm.jet, linewidth=0.2)
 plt.show()
