@@ -10,6 +10,7 @@ zeros = tf.zeros([3, 4])
 print("zeros: ")
 print(sess.run(zeros))
 print(sess.run(tf.rank(zeros)))
+print(sess.run(tf.shape(zeros)))
 print()
 
 ones = tf.ones([5, 4])
@@ -158,3 +159,5 @@ print("cross: ", sess.run(tf.cross([1., 0., 0.], [0., 1., 0.])))
 print(sess.run(tf.nn.relu([-3, 3, 10])))
 print(sess.run(tf.nn.relu6([-3, 3, 10])))
 print(sess.run(tf.nn.sigmoid([-1., 0, 1.])))
+
+sess.close()

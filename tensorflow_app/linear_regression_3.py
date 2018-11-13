@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from tensorflow.python.tools.inspect_checkpoint import print_tensors_in_checkpoint_file
 
 __author__ = "代码医生"
 
@@ -27,6 +28,8 @@ z = tf.multiply(X, W) + b
 
 saver = tf.train.Saver()  # 生成saver
 savedir = "log/"
+
+print_tensors_in_checkpoint_file(savedir + "linermodel.cpkt", None, True)
 
 # 启动session
 with tf.Session() as sess:

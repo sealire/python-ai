@@ -50,7 +50,7 @@ init = tf.global_variables_initializer()
 # 训练参数
 training_epochs = 20
 saver = tf.train.Saver()  # 生成saver
-savedir = "log/"
+savedir = "log/linear/"
 
 # 启动session
 with tf.Session() as sess:
