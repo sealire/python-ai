@@ -32,7 +32,7 @@ print("b.T:")
 print(b.T)
 print()
 
-a = np.arange(120).reshape(2, 3, 4, 5)
+a = np.arange(24).reshape(1, 2, 3, 4)
 print("rollaxis:")
 print(np.rollaxis(a, 2))
 print()

@@ -1,18 +1,17 @@
 import numpy as np
 import cv2
 
-img = np.mat(np.random.randn(300, 300))
-img[:, 10] = 255
-img[10, :] = 255
-cv2.imshow("test", img)
-cv2.waitKey(0)
+img = cv2.imread("pp.jpg", 0)
+shape = np.shape(img)
+back = np.mat(np.random.randn(shape[0], shape[1]))
+back[:, :] = 200
 
-img = cv2.imread("gg.jpg", 0)
-cv2.imshow("test", img)
-cv2.waitKey(0)
+bimg = back - img
 
-blur = cv2.GaussianBlur(img, (11, 11), 0)
-gauss = img - blur
+print(np.shape(img))
+print(np.shape(bimg))
+print(np.shape(back))
 
-cv2.imshow("test", blur)
+
+cv2.imshow("test", bimg)
 cv2.waitKey(0)

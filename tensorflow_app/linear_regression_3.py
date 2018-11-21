@@ -27,7 +27,7 @@ b = tf.Variable(tf.zeros([1]), name="bias")
 z = tf.multiply(X, W) + b
 
 saver = tf.train.Saver()  # 生成saver
-savedir = "log/"
+savedir = "log/linear/"
 
 print_tensors_in_checkpoint_file(savedir + "linermodel.cpkt", None, True)
 
@@ -39,8 +39,12 @@ with tf.Session() as sess:
     print("W=", sess.run(W), "b=", sess.run(b))
     print("x=0.2，z=", sess.run(z, feed_dict={X: 0.2}))
 
+    writer = tf.summary.FileWriter("log/tensorboard_test", sess.graph)
+
     # 图形显示
     plt.plot(train_X, train_Y, 'ro', label='Original data')
     plt.plot(train_X, sess.run(W) * train_X + sess.run(b), label='Fitted line')
     plt.legend()
     plt.show()
+
+writer.close()
