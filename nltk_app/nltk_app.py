@@ -1,5 +1,5 @@
-from translate import Translator
+import nltk
 
-translator = Translator(from_lang="English", to_lang="Chinese")
-translation = translator.translate("I am Chinese!")
-print(translation)
+text = nltk.word_tokenize("A Python is a serpent which eats eggs from the nest")
+tagged_text = nltk.pos_tag(text)
+print(tagged_text)
