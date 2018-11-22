@@ -1,16 +1,17 @@
-import nltk
+import tensorflow as tf
+import numpy as np
 
-# 文本去重
+# 定义一个矩阵a，表示需要被卷积的矩阵。
+a = np.array(np.arange(1, 1 + 20).reshape([1, 10, 2]), dtype=np.float32)
 
-word_data = "The Sky is blue also the ocean is blue also Rainbow has a blue colour."
-nltk_tokens = nltk.word_tokenize(word_data)
+# 卷积核，此处卷积核的数目为1
+kernel = np.array(np.arange(1, 1 + 4), dtype=np.float32).reshape([2, 2, 1])
 
-unordered_tokens = set()
-ordered_tokens = []
-for word in nltk_tokens:
-    if word not in unordered_tokens:
-        unordered_tokens.add(word)
-        ordered_tokens.append(word)
+# 进行conv1d卷积
+conv1d = tf.nn.conv1d(a, kernel, 1, 'VALID')
 
-print(unordered_tokens)
-print(ordered_tokens)
+with tf.Session() as sess:
+    # 初始化
+    tf.global_variables_initializer().run()
+    # 输出卷积值
+    print(sess.run(conv1d))
