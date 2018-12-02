@@ -36,5 +36,5 @@ class RMM(object):
 if __name__ == '__main__':
     text = "南京市长江大桥"
 
-    tokenizer = RMM('./imm_dic.utf8')
+    tokenizer = RMM('./data/imm_dic.utf8')
     print(tokenizer.cut(text))
